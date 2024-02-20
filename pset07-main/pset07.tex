@@ -1,0 +1,99 @@
+\documentclass[a4paper]{exam}
+
+
+\usepackage{amsfonts,amsmath,amsthm}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+\title{Problem Set 07: Proof Methods}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\boxedpoints
+
+\printanswers
+
+\begin{document}
+\maketitle
+
+For each question below, clearly write the statement to prove or disprove so that its logical structure is evident. Provide formal proofs. See \href{https://www.overleaf.com/learn/latex/Theorems_and_proofs#Proofs}{this guide} for typesetting proofs in \LaTeX.
+
+If your proof is exceeding 10 lines, you are probably on the wrong track.
+
+The following definitions may prove helpful when attempting the problems.
+
+\begin{definition}[Prime and composite numbers]
+A natural number (0, 1, 2, 3, 4, 5, 6, etc.) is called a \textit{prime number} (or a \textit{prime}) if it is greater than 1 and cannot be written as the product of two smaller natural numbers. The numbers greater than 1 that are not prime are called \textit{composite} numbers.  
+\end{definition}
+
+\begin{definition}[Even and odd numbers]
+An \textit{even number} is an integer of the form $x=2k$ where $k$ is an integer; an \textit{odd number} is an integer of the form $x=2k+1$.  
+\end{definition}
+
+\begin{definition}[Parity]
+The \textit{parity of a number} is its property of being even or odd.
+\end{definition}
+
+\begin{definition}[Rational number]
+A \textit{rational number} can be written as $\frac{p}{q}$ where $p$ and $q$ are integers and $q\neq 0$. A number that is not rational is \textit{irrational}.
+\end{definition}
+
+\begin{questions}
+  
+\question
+  Show through contraposition: If $x^2 - 6x + 5$ is even, then $x$ is odd.
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+\question Provide a counterexample to disprove: If $n$ is an integer and $n^2$ is divisible by 4, then $n$ is divisible by 4. Explain why it is a counterexample.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\question Prove using contradiction that $\sqrt{2}$ is irrational.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\fullwidth{For each of the following problems, clearly mention the proof method that you employ.}
+
+\question Prove that for $n\in\Z$, $n$ is odd if and only if $5n + 6$ is odd.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+\question Prove or disprove: The sum of a rational and an irrational number is a rational number.
+
+  \begin{solution}
+    % Enter your solution here.
+    \end{solution}
+  
+\question Prove or disprove that for $(x^2 - y^2) \mod 4 \neq 2$ where $x$ and $y$ are integers.\\
+  \textit{Hint}: a) Consider the different cases of parities of $x$ nd $y$. b) Use the method of \textit{proof by cases} and apply a proof \textit{without loss of generality} described in Section 1.8.2 in the book.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+\question 
+  Prove or disprove that $2^n + 1$ is prime for every $n\in\Z^+$.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+\end{questions}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
