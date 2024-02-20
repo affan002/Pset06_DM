@@ -1,0 +1,157 @@
+\documentclass[a4paper]{exam}
+
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\header{CS/MATH 113}{PSet 03}{Spring 2024}
+\footer{}{Page \thepage\ of \numpages}{}
+\runningheadrule
+\runningfootrule
+
+\title{Problem Set 03: Propositional Logic and Equivalences}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\boxedpoints
+
+\printanswers
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+  \question Show that the following are logically equivalent without using truth tables:
+  \begin{parts}
+    \part $(p \Rightarrow r) \lor (q \Rightarrow r) \equiv (p \land q) \Rightarrow r$
+
+    \begin{solution}
+      % Enter your solution here.
+      \\$(\neg p \lor r) \lor (\neg q \lor r)$ Conditional disjunction \\
+      $(\neg p \lor \neg q) \lor (r \lor r)$ Associative law\\
+      $\neg(p \land q) \lor r$ Idempotent and demorgan's law\\
+      $(p \land q) \rightarrow r$ conditional disjunction
+    \end{solution}
+    \part 
+    $\neg \left[ \neg \left[\left(p \lor q \right) \land r \right] \lor \neg q \right] \equiv q \land r $
+
+    \begin{solution}
+      % Enter your solution here.
+      \\$\neg \left[\neg(p \lor q) \lor \neg r \lor \neg q \right]$ Demorgan's law\\
+      $(p \lor q) \land r \land q$ Demorgan's law\\
+      $\left[q \land (p \lor q) \right] \land r$ Associative law\\
+      $\left[(q \land p) \lor (q \land q)\right] \land r$ Distributive law\\
+      $\left[q \lor (q \land p) \right] \land r$ Idempotent law\\
+      $q \land r$ Absorption law
+    \end{solution}
+    \part  $(p \lor q \lor r) \land (p \lor t \lor \neg q) \land (p \lor \neg t \lor r)  \equiv p \lor \left[ r \land \left(t \lor \neg q \right)\right]$
+
+    \begin{solution}
+      % Enter your solution here.
+
+
+    \end{solution}
+  \end{parts}
+  
+  \question Use Truth tables to see if the following statements are logically equivalent: 
+  \begin{parts}
+    \part $p \Rightarrow (q \lor r) \equiv (q \Rightarrow p) \land (p \Rightarrow r)$
+
+    \begin{solution}\\
+      % Enter your solution here.
+      \begin{tabular}{|ccc|c|c|c|c|c|}
+        \hline
+        p & q & r & $q \lor r$ & $p \rightarrow (q \lor r)$ & $q \rightarrow p$ & $p \rightarrow r$ & $(q \rightarrow p) \land (p \rightarrow r)$ \\ \hline
+        T & T & T & T & T & T & T & T\\
+        T & T & F & T & T & T & F & F\\
+        T & F & T & T & T & T & T & T\\
+        T & F & F & F & F & T & F & F\\
+        F & T & T & T & T & F & T & F\\
+        F & T & F & T & T & F & T & F\\
+        F & F & T & T & T & T & T & T\\
+        F & F & F & F & T & T & T & T\\ \hline
+      \end{tabular}\\
+      since the truth value of the statements donot match, they are not equivalent.
+    \end{solution}
+    \part 
+    $(p \lor q) \Rightarrow r \equiv (p \Rightarrow r) \land (q \Rightarrow r)$
+
+    \begin{solution}\\
+      % Enter your solution here.
+      \begin{tabular}{|ccc|c|c|c|c|c|}
+        \hline
+        p & q & r & $p \lor q$ & $p \rightarrow r$ & $q \rightarrow r$ & $(p \lor q) \rightarrow r$ & $(p \rightarrow r) \land (q \rightarrow r)$ \\ \hline
+        T & T & T & T & T & T & T & T\\
+        T & T & F & T & F & F & F & F\\
+        T & F & T & T & T & T & T & T\\
+        T & F & F & T & F & T & F & F\\
+        F & T & T & T & T & T & T & T\\
+        F & T & F & T & T & F & F & F\\
+        F & F & T & F & T & T & T & T\\
+        F & F & F & F & T & T & T & T\\ \hline
+      \end{tabular}\\
+      Since the truth values for both Propositional statements are same, they are logically equivalent.
+    \end{solution}
+    \part  $p \Rightarrow (q \lor r) \equiv \neg r \Rightarrow (p \Rightarrow q)$
+
+    \begin{solution}\\
+      % Enter your solution here.
+      \begin{tabular}{|ccc|c|c|c|c|c|}
+        \hline
+        p & q & r & $q \lor r$ & $\neg r$ & $p \rightarrow q$ & $p \rightarrow (q \lor r)$ & $\neg r \rightarrow (p \rightarrow q) $ \\ \hline
+        T & T & T & T & F & T & T & T\\
+        T & T & F & T & T & T & T & T\\
+        T & F & T & T & F & F & T & T\\
+        T & F & F & F & T & F & F & F\\
+        F & T & T & T & F & T & T & T\\
+        F & T & F & T & T & T & T & T\\
+        F & F & T & T & F & T & T & T\\
+        F & F & F & F & T & T & T & T\\ \hline
+      \end{tabular}\\
+      Since the truth values of the two Propositional are both the same, they are logically Equivalent.
+    \end{solution}
+  \end{parts}
+
+  \question Express the negation of each of the following statements in natural language using De Morgan’s laws.
+  \begin{parts}
+  \part Graduates take a job in industry or go to graduate school or start their own ventures.
+  \begin{solution}
+    % Enter your solution here.
+    Graduates will not take a job in industry and won't go to graduate school and won't start their own ventures.
+  \end{solution}
+  \part First year students know python and calculus.
+  \begin{solution}
+    % Enter your solution here.
+    First year students don't know python or they don't know calculus
+  \end{solution}
+  \part Horizon is new and bright.
+  \begin{solution}
+    % Enter your solution here.
+    Horizon is not new or not bright.
+  \end{solution}
+\end{parts}
+
+\question Determine whether each of the following compound propositions is satisfiable.
+\begin{parts}
+  \part $(p\lor \lnot q)\land(\lnot p\lor q)\land(\lnot p\lor\lnot q)$
+  \begin{solution}
+    % Enter your solution here.
+    When both the truth value of both p and q are False, the compound proposition is True. Hence it is satisfiable because of the statement being a contingency.
+  \end{solution}
+  \part $(p\implies q)\land(p\implies\lnot q)\land (\lnot p\implies q)\land(\lnot p\implies\lnot q)$
+  \begin{solution}
+    % Enter your solution here.
+    This compound proposition can be also be written as\\ $ \left[(\neg p \lor q)\land(\neg p \lor \lnot q) \land(\ p\lor\lnot q)\right] \land (p \lor q)$ \\ The statement to left is the same as the one in last part for which we reasoned that it is only True when both p and q are False, whereas $p \lor q$ is True when atleast of one of them is True. This causes the conditions to be contradictory thus the whole compound proposition is a contradiction, hence unsatisfiable.
+  \end{solution}
+  \part $(p \iff q)\land(\lnot p \iff q)$
+  \begin{solution}
+    % Enter your solution here.
+    There is no assignment of truth values to \(p\) and \(q\) that makes the whole propositional statement True, making this statement a contradiction. Thus it is not satisfiable.
+  \end{solution}
+\end{parts}
+\end{questions}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

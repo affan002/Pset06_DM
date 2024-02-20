@@ -1,0 +1,303 @@
+\documentclass[a4paper]{exam}
+
+\usepackage{amsmath,amsthm}
+\usepackage{array}
+\usepackage[a4paper]{geometry}
+
+\header{CS/MATH 113}{PSet 04: Predicates, Quantifiers, and Nested Quantifiers}{Spring 2024}
+\footer{}{Page \thepage\ of \numpages}{}
+\runningheadrule
+\runningfootrule
+
+\title{Problem Set 04: Predicates, Quantifiers, and Nested Quantifiers}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\printanswers
+
+\begin{document}
+\maketitle
+
+The problems below are grouped by the section of the book that they draw from. Many of them are similar to the worked examples in the section. Please consult the section for help if needed. You can also approach the course staff during their consultation hours are listed on Canvas.
+
+Discussing the problems with your peers is encouraged and does not violate academic honesty unless the submitted solutions are highly similar.
+
+\begin{questions}
+\fullwidth{\section*{1.4 Predicates and Quantifiers}}
+  % \question Determine the truth value of each of these statements if the domain of each variable consists of all real numbers.
+  % \begin{parts}
+  %   \part $\exists x (x^2 = 2)$
+  %   \part $\exists x (x^2 = -1)$
+  %   \part $\forall x (x^2+2\ge 1)$
+  %   \part $\forall x (x^2\ne x)$
+  % \end{parts}
+
+  \question Express the negation of each of these statements in terms of quantifiers without using the negation symbol.
+  \begin{parts}
+    \part $\forall x (-2 < x < 3)$
+    \begin{solution}
+      % Enter your solution here.
+      $\exists x ((x \le -2) \lor (x \ge 3))$
+    \end{solution}
+    \part $\forall x (0 \le x < 5)$
+    \begin{solution}
+      % Enter your solution here.
+      $\exists x ((x<0) \lor (x \ge 5))$
+    \end{solution}
+    \part $\exists x (-4 \le x \le 1)$
+    \begin{solution}
+      % Enter your solution here.
+      $\forall x ((-4>x) \lor (x>1))$
+    \end{solution}
+    \part $\exists x (-5 < x < -1)$
+    \begin{solution}
+      % Enter your solution here.
+      $\forall x ((x \le -5) \lor (x \ge -1))$
+    \end{solution}
+  \end{parts}
+
+  % \question Find a counterexample, if possible, to these universally quantified statements, where the domain for all variables consists of all real numbers.
+  % \begin{parts}
+  %   \part $\forall x (x^2 = x)$
+  %   \part $\forall x (x^2 \ne 2)$
+  %   \part $\forall x (|x| > 0)$
+  % \end{parts}
+
+  \question Determine whether the following pairs of statements are logically equivalent.
+  \begin{parts}
+    \part $\forall x (P(x) \implies Q(x))$ and $\forall x P(x) \implies \forall x Q(x)$
+    \begin{solution}
+      % Enter your solution here.
+      Since the predicate P and Q donot take the same truth value for every x, the two quantified statements are not equivalent.
+    \end{solution}
+    \part $\forall x (P(x) \iff Q(x))$ and $\forall x P(x) \iff \forall x Q(x)$
+    \begin{solution}
+      % Enter your solution here.
+      Since the two predicates take the same truth value for every x, the two quantified statements are equivalent.
+    \end{solution}
+  \end{parts}
+
+  \question Show that the following pairs of statements are not logically equivalent.
+  \begin{parts}
+    \part $\forall x P(x) \lor \forall x Q(x)$ and $ \forall x (P(x) \lor Q(x))$
+    \begin{solution}
+      % Enter your solution here.
+      Since both the predicates donot take the same truth value for every x, the statements are not equivalent.  
+    \end{solution}
+    \part $\exists x P(x) \land \exists x Q(x)$ and $ \exists x (P(x) \land Q(x))$
+    \begin{solution}
+      % Enter your solution here.
+      For the first statment, P and Q can be satisfied by two different values of x. Whereas, the second one insists on a single x sastisfying both predicates. Therefore, they are not equivalent.
+    \end{solution}
+  \end{parts}
+
+
+\fullwidth{\section*{1.5 Nested Quantifiers}}
+
+  \question A discrete mathematics class contains 1 CND freshman, 3 CND sophomores, 15 CS sophomores, 2 CND juniors, 2 CS juniors, and 1 CS senior. Express each of these statements in terms of quantifiers and then determine its truth value.
+  \begin{parts}
+    \part There is a student in the class who is a junior.
+    \begin{solution}\\
+      % Enter your solution here.
+      j(x): x is a junior\\
+      D(x): x is in discrete maths class\\
+      $\exists x (D(x) \implies j(x))$\\
+      True
+
+    \end{solution}
+    \part Every student in the class is a CS major.
+    \begin{solution}\\
+      % Enter your solution here.\\
+      CS(x): x is a CS major\\
+      D(x): x is in discrete maths class\\
+      $\forall x(D(x) \implies CS(x))$\\
+      False
+
+    \end{solution}
+    \part There is a student in the class who is neither a CND major nor a junior.
+    \begin{solution}\\
+      % Enter your solution here.
+      j(x): x is a junior\\
+      CND(x): x is a CND major\\
+      D(x): x is in discrete maths class\\
+      $\exists x (D(x) \implies \lnot(CND(x) \lor j(x)))$\\
+      True
+
+
+    \end{solution}
+    \part Every student in the class is either a sophomore or a CS major.
+    \begin{solution}\\
+      % Enter your solution here.
+      D(x): x is in discrete maths class\\
+      CS(x): x is a CS major\\
+      soph(x): x is a sophomore\\
+      $\forall x (D(x) \implies (CS(x) \lor Soph(x)))$\\
+      False
+
+
+    \end{solution}
+    \part There is a major such that there is a student in the class in every year of study with that major.
+    \begin{solution}\\
+      % Enter your solution here.
+      Maj(m): m major
+      Y(p, q, r, s): p is a freshman, q is a sophomore, r is a junior, s in senior
+      $\exists m (Maj(m) \implies \exists p \exists q \exists r \exists s P(p, q, r, s))$\\
+      False
+
+    \end{solution}
+  \end{parts}
+  
+  \question Use predicates, quantifiers, logical connectives, and mathematical operators to express the statement that there is a positive integer that is not the sum of three squares.
+    \begin{solution}\\
+      % Enter your solution here
+      P(x): x is a positve integer\\
+      S(x, p, q, r): x is the sum of squares of p, q, r\\
+      $\exists x(P(x) \implies \lnot(\exists p \exists q \exists r(S(x, p, q, r))))$
+
+    \end{solution}
+
+  \question Determine the truth value of each of these statements if the domain of each variable consists of all real numbers. Where possible, provide an example if the statement is true, or a counterexample if the statement is False.
+  \begin{parts}
+    \part $\forall x \exists y (x^2 = y)$
+    \begin{solution}\\
+      % Enter your solution here.
+      True\\
+      This statement means that for all real numbers x there exists a value y which is the square of x, $2^2 == 4$
+    \end{solution}
+    \part $\forall x \exists y (x = y^2)$
+    \begin{solution}\\
+      % Enter your solution here.
+      False\\
+      A counter example would be x = -1, there doesn't exist a numbers whose square is equal to -1 
+    \end{solution}
+    \part $\exists x \forall y (xy = 0)$
+    \begin{solution}\\
+      % Enter your solution here.
+      True\\
+      For x =0, the product of x and y will always be zero.
+    \end{solution}
+    \part $\exists x \exists y (x + y \ne y + x)$
+    \begin{solution}
+      % Enter your solution here.
+      False\\
+      According to the commutative property of addition, any order of adding elements gives the same answer. For example, x = 1 and y = -2, x+y = -1 and y+x = -1.
+    \end{solution}
+    \part $\forall x (x \ne 0 \implies \exists y (xy = 1))$
+    \begin{solution}\\
+      % Enter your solution here.
+      True\\
+      For all numerical values except 0 there exists a multiplicative inverse. For example, if x = 3, then multiplying it with 1/3 will give 1.
+      
+    \end{solution}
+    \part $\exists x \forall y (y \ne 0 \implies xy = 1)$
+    \begin{solution}\\
+      % Enter your solution here.
+      False\\
+      There only exists one multiplicative inverse for any real number, whereas this statement says that for one x all the values of y are its multiplicative inverse.
+    \end{solution}
+    \part $\forall x \exists y (x + y = 1)$
+    \begin{solution}
+      % Enter your solution here.
+      True\\
+      if x=0 and y=1, x+y = 1
+    \end{solution}
+    \part $\exists x \exists y (x + 2y = 2 \land 2x + 4y = 5)$
+    \begin{solution}\\
+      % Enter your solution here.
+      False\\
+      Since both of the equations cannot be solved simultaneously, it is false for all the values of x and y.
+    \end{solution}
+    \part $\forall x \exists y (x + y = 2 \land 2x - y = 1)$
+    \begin{solution}\\
+      % Enter your solution here.
+      False\\
+      Lets consider x=0, y would be equals to 2. \[2(0)-2 \neq 1\]
+    \end{solution}
+    \part $\forall x \forall y \exists z (z = \frac{x + y}{2})$
+    \begin{solution}\\
+      % Enter your solution here.
+      True\\
+      The statement says that for every value x and y, there exists an average z. consider x = 1 and y = 3, there exist a value z which is equals to 2.
+
+    \end{solution}
+  \end{parts}
+
+  \question Suppose the domain of the propositional function P(x, y) consists of pairs $x$ and $y$, where $x$ is $1,2,$ or $3$ and $y$ is $1,2,$ or $3$. Write out these propositions using disjunctions and conjunctions.
+  \begin{parts}
+    \part $\forall x \forall y P(x, y)$
+    \begin{solution}
+      % Enter your solution here.
+      $P(1,1) \land P(1,2) \land P(1,3) \land P(2,1) \land P(2,2) \land P(2,3) \land P(3,1) \land P(3,2) \land P(3,3)$
+    \end{solution}
+    \part $\exists x \exists y P(x, y)$
+    \begin{solution}
+      % Enter your solution here.
+      $P(1,1) \lor P(1,2) \lor P(1,3) \lor P(2,1) \lor P(2,2) \lor P(2,3) \lor P(3,1) \lor P(3,2) \lor P(3,3)$
+    \end{solution}
+    \part $\exists x \forall y P(x, y)$
+    \begin{solution}
+      % Enter your solution here.
+      $(P(1,1) \land P(1,2) \land P(1,3)) \lor (P(2,1) \land P(2,2) \land P(2,3)) \lor (P(3,1) \land P(3,2) \land P(3,3))$
+    \end{solution}
+    \part $\forall x \exists y P(x, y)$
+    \begin{solution}
+      % Enter your solution here.
+      $(P(1,1) \land P(2,1) \land P(3,1)) \lor (P(1,2) \land P(2,2) \land P(3,2)) \lor (P(1,3) \land P(2,3) \land P(3,3))$
+
+    \end{solution}
+  \end{parts}
+  
+  \question Find a counterexample, if possible, to these universally quantified statements, where the domain for all variables consists of all integers.
+  \begin{parts}
+    \part $\forall x \exists y (x = \frac{1}{y})$
+    \begin{solution}
+      % Enter your solution here.
+      Lets consider x = 0, then there won't exist any value of y such 0 = 1/y as division by zero is infinity.
+    \end{solution}
+    \part $\forall x \exists y (y^2 - x < 100)$
+    \begin{solution}
+      % Enter your solution here.
+      The quantified statement is true. Therefore, no counterexample exist. 
+    \end{solution}
+    \part $\forall x \forall y (x^2 \ne y^3)$
+    \begin{solution}
+      % Enter your solution here.
+      consider x=0 and y=0 then \(x^2\) would be equals to \(y^3\) 
+    \end{solution}
+  \end{parts}
+
+  \question Determine the truth value of the statement $\exists x \forall y (x \le y^2)$ if the common domain for the variables is as given below. Where possible, provide an example if the statement is true, or a counterexample if the statement is False.
+  \begin{parts}
+    \part the positive real numbers.
+    \begin{solution}
+      % Enter your solution here.
+      False\\
+      Consider x = 0.25, then for y = 0.125 we have  \(y^2\) = 1/64 for which \(x \geq y^2\).
+    \end{solution}
+    \part the integers.
+    \begin{solution}
+      % Enter your solution here.
+      True \\ 
+      consider x = 0, then for every value of y \(x \leq y^2\)
+
+    \end{solution}
+    \part the nonzero real numbers.
+    \begin{solution}
+      % Enter your solution here.
+      False\\
+      consider x=1, then for y = 0.5 we have \(y^2\) = 0.25 which is not greater than equals to 1. Thus for every value of x there will always exist a y for which \(x \geq y^2\) 
+    \end{solution}
+  \end{parts}
+  
+  \question Express the quantification $\exists!x P(x)$ using universal and existential quantifiers, and logical operators.
+    \begin{solution}
+      % Enter your solution here.
+      $\exists x (P(x) \land \forall y (P(y) \implies y=x))$
+    \end{solution}
+  
+\end{questions}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
