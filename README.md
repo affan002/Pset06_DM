@@ -1,1 +1,1 @@
-# Pset06_DM
+# Problem sets - Discrete Mathematics(CS113)
