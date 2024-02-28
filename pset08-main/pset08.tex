@@ -1,0 +1,121 @@
+\documentclass[a4paper]{exam}
+
+
+\usepackage{amsfonts,amsmath,amsthm}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+
+\title{Problem Set 08: Sets And Functions}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\boxedpoints
+
+\printanswers
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+\question 
+  Prove: $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ if and only if $A \subseteq B$.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+
+\question Show that if \(A \subseteq C\) and \(B \subseteq D\), then \(A \times B \subseteq C \times D\).
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\question Prove or disprove the following statements for all sets $A, B,$ and $C$:
+  \begin{parts}
+  \part $ A \times (B \cup C) = (A \times B) \cup (A \times C) $
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part $A \times (B \cap C) = (A \times B) \cap (A \times C) $
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+  \end{parts}
+  
+\question If $A, B,$ and $C$ are sets such that $A \subseteq B$ and $B \subseteq C$, show that $A \subseteq C$.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+\question Show that if $A$ and $B$ are finite sets, then  \( A \cup B \) is a finite set.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\question
+  \begin{parts}
+  \part Prove that the function $f: \Z\to\Z$, defined as \(f(n) = n^2\) is neither injective nor surjective.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part Can you make this function injective without doing any changes to the original function? (Hint: try redefining its domain and/or co-domain.)
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+  \end{parts}
+
+  
+\question Prove that the function $f: \Z\to\Z$ defined as \(f(n) = n+1\), is invertible.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\question Give an explicit formula for a function from \Z to $\Z^+$ that is:
+  \begin{parts}
+  \part one-to-one, but not onto,
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part onto, but not one-to-one,
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part one-to-one and onto, and
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part neither one-to-one nor onto.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+  \end{parts}
+
+\question A function \(f: I \rightarrow \R\) is strictly increasing on an interval \(I\) if for all \(x_1, x_2 \in I\) with \(x_1 < x_2\), it holds that \(f(x_1) < f(x_2)\). Here $I$ represents the interval on which the function is strictly increasing.
+  
+  Given this definition, prove that a strictly increasing function is always injective over the interval, I.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+\end{questions}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
