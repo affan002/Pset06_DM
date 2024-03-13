@@ -29,13 +29,35 @@
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+      We need to prove that \\
+      1. $A \subseteq B \implies \mathcal{P}(A) \subseteq \mathcal{P}(B)$\\
+      2. $\mathcal{P}(A) \subseteq \mathcal{P}(B) \implies A \subseteq B$\\\\
+      considering (1):\\
+      Assume $A \subseteq B$\\
+      then \(mathcal{P}(A) = \{C | C \subseteq A\}\)\\
+      Since every C in \(mathcal{P}(A)\) belongs to B\\
+      Therefore, \(\mathcal{P}(A) \subseteq \mathcal{P}(B)\)\\\\
+      considering (2):\\
+      Assume $\mathcal{P}(A) \subseteq \mathcal{P}(B)$\\
+      Since \(A \in \mathcal{P}(A) and A \in \mathcal{P}(B)\)\\
+      Therefore, \(A \subseteq B\)
+
+      
+    \end{proof}
   \end{solution}
 
 
 \question Show that if \(A \subseteq C\) and \(B \subseteq D\), then \(A \times B \subseteq C \times D\).
 
   \begin{solution}
-    % Enter your solution here.
+    \begin{proof}
+    Considering the premise, \(A \subseteq C\) and \(B \subseteq D\)\\
+    \(A \times B = \{(a,b) | a \in A, b \in B\}\)\\
+    Since \(A \subseteq C\) and \(a \in A\), it should also be a member of \(C\)\\
+    Similarly, we can say that \(b \in B\) should also be a member of \(D\)\\
+    Therefore, every element \((a,b)\) in \(A \times B\), also belongs to \(C \times D\)
+    \end{proof}
   \end{solution}
   
 \question Prove or disprove the following statements for all sets $A, B,$ and $C$:
@@ -43,11 +65,32 @@
   \part $ A \times (B \cup C) = (A \times B) \cup (A \times C) $
     \begin{solution}
       % Enter your solution here.
+      \begin{proof}
+        
+        \(B \cup C = \{x | x \in B \lor x \in C\}\)\\
+        \(A \times (B \cup C)\ = \{(a, x) | a \in A, x \in B \lor x \in C\}\)\\
+        Since $(A \times B) \cup (A \times C)$ will also contain ordered pairs \((a, x)\)\\
+        such that the $x \in B \lor x \in C$\\
+        Therefore \((A \times B) \cup (A \times C)\ = \{(a, x) | a \in A, x \in B \lor x \in C\}\)
+        
+
+        
+      \end{proof}
     \end{solution}
 
   \part $A \times (B \cap C) = (A \times B) \cap (A \times C) $
     \begin{solution}
       % Enter your solution here.
+      \begin{proof}
+        \(B \cap C = \{x | x \in B \land x \in C\}\)\\
+        Then \(A \times (B \cap C) = \{(a, x) | a \in A, x \in B \land x \in C\}\)\\
+        Thus according to the definintion of intersecton \((a, x) \in A \times B\) and \((a, x) \in A \times C\) \\
+        Therefore \((A \times B) \cap (A \times C)\)\\
+
+        Similarly, if there is an ordered pair \((a, b)\), such that \(a \in A\) and \(b \in B\)\\
+        then \(b \in C\), thus \(b \in (B \cap C)\)
+        Therefore \(A \times (B \cap C)\) 
+      \end{proof}
     \end{solution}
   \end{parts}
   
@@ -55,24 +98,55 @@
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+     Given that $\forall x (x \in A \implies x \in B)$ and $\forall x (x \in A \implies x \in B)$
+     Through universal instantiation, :\\
+  
+      1. $t \in A \implies t \in B$\\
+      2. $t \in B \implies t \in C$\\
+      where t is an arbitary element\\\\
+
+      Then through disjuctive syllogism: $t \in A \implies t \in C$\\
+      Therefore, universal generalisation results in  $\forall x (x \in A \implies x \in C)$
+  
+    \end{proof}
   \end{solution}
 
 \question Show that if $A$ and $B$ are finite sets, then  \( A \cup B \) is a finite set.
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+    for \(A \cup B\) to be a finite set \(|A \cup B|\) should be a non-negative finite number\\
+    We know that \(|A \cup B| = |A| + |B| - |A \cap B|\)\\
+    Since \(A\) and \(B\) are finite then \(|A|\) and \(|B|\) are also non-negative finite numbers\\
+    We also know that \(|A \cap B| \leq |A| \land |A \cap B| \leq |B|\)\\
+    Hence, performing the above arithmetic operations results in a non-negative finite number.  
+    \end{proof}
   \end{solution}
   
 \question
   \begin{parts}
   \part Prove that the function $f: \Z\to\Z$, defined as \(f(n) = n^2\) is neither injective nor surjective.
     \begin{solution}
-      % Enter your solution here.
+      % Enter your solution here.\
+      \begin{proof}
+        Since injection means $\forall x \forall y (f(x) = f(y) \implies x = y)$\\
+        Consider x = 2 and y = -2 then $f(2) = 4$ and $f(-2) = 4$\\
+        since $f(2) = f(-2) \implies 2 \neq -2$, the implication is false\\
+        Hence the function is not injective 
+        \\
+        Since surjection means $\forall y \exists x (f(x) = y)$\\
+        Considering that the codomain consists of all the integers thus there should be a value of x which maps to all integers\\
+        But, since the range only consists of positive integer the function is not surjective\\
+        Consider f(x) = -1, there exists no x which maps onto such value. 
+      \end{proof}
     \end{solution}
 
   \part Can you make this function injective without doing any changes to the original function? (Hint: try redefining its domain and/or co-domain.)
     \begin{solution}
       % Enter your solution here.
+      by defining the domain as  $f: \Z^+\to\Z^+$
     \end{solution}
   \end{parts}
 
@@ -81,6 +155,20 @@
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+      For f(n) to invertible, it should be bijective thus we need to prove injection and surjection.\\\\
+      Surjection can be proved using proof by contradiction\\
+      consider $f(x) = f(y)$ and $x \neq y$\\
+      then,
+      \[
+      x + 1 = y + 1
+      x = y  
+      \] 
+      Hence there is contradiction and injection is proved\\\\
+      To prove surjection\\
+      consider $y \in \Z$\\
+      then $f(y-1) = y$
+    \end{proof}
   \end{solution}
   
 \question Give an explicit formula for a function from \Z to $\Z^+$ that is:
@@ -88,21 +176,26 @@
   \part one-to-one, but not onto,
     \begin{solution}
       % Enter your solution here.
+      $f(x) = 2x + 3, x \geq 0$
     \end{solution}
 
   \part onto, but not one-to-one,
     \begin{solution}
       % Enter your solution here.
+      $f(x) = |x| + 1$
     \end{solution}
 
   \part one-to-one and onto, and
     \begin{solution}
       % Enter your solution here.
+      $f(x) = 2x + 1, x \geq 0$
+      $f(x) = -2x, x < 0$
     \end{solution}
 
   \part neither one-to-one nor onto.
     \begin{solution}
       % Enter your solution here.
+      $f(x) = x^2 + 1$
     \end{solution}
   \end{parts}
 
@@ -112,6 +205,12 @@
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+    The definition of injection is $\forall x \forall y (f(x) = f(y) \implies x = y)$\\
+    since $f(x1) < f(x2)$ over the interval I\\
+    thus $f(x1) \neq f(x2)$\\
+    Thus injection is vacuosly proved as the premise of $f(x) = f(y)$ is always false 
+    \end{proof}
   \end{solution}
 \end{questions}
 \end{document}
