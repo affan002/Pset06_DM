@@ -1,0 +1,80 @@
+\documentclass[a4paper]{exam}
+
+\usepackage{amsfonts,amsmath,amsthm}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\graphicspath{{images/}}
+
+\header{CS/MATH 113}{WC11: Mathematical Induction}{Spring 2024}
+\footer{}{Page \thepage\ of \numpages}{}
+\runningheadrule
+\runningfootrule
+
+\printanswers
+
+\qformat{{\large\bf \thequestion. \thequestiontitle}\hfill(\thepoints)}
+\boxedpoints
+
+\title{Weekly Challenge 11: Mathematical Induction}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+  \titledquestion{Pyramid Scheme}[10]
+    Suppose we have circular coins, a lot of them and all of the same dimension, and we were to make a hexagonal pyramid out of them as follows. The top layer has $1$ coin. The second layer has $7$ coins arranged in a hexagon with side length of two coins (see picture below). The third layer has $19$ coins in the same hexagonal pattern but with side length of three coins, and so on.
+
+    Use mathematical induction to prove that a pyramid created in this manner and constituting $n$ layers requires in total $n^3$ coins.
+  \begin{figure}[h!]
+    \centerline{\includegraphics{layer1}}
+    \caption{Top layer as seen from above.}
+    \label{layer1}
+  \end{figure}
+  \begin{figure}[h!]
+    \centerline{\includegraphics{layer2.png}}
+    \caption{The second layer as seen from above. Note that this layer has $7$ coins and forms a hexagon with side length of two coins.}
+    \label{layer2}
+  \end{figure}
+  \newpage
+  \begin{figure}[h!]
+    \centerline{\includegraphics{layer3.png}}
+    \caption{The third layer with $19$ coins forming a hexagon with side length of three coins.}
+    \label{layer3}
+  \end{figure}
+
+  Note: All figures are taken from \href{https://www.geogebra.org/m/cnqdjcph}{beckykwarren's geogebra page}.
+
+  \begin{solution}
+    % Enter your solution here.
+    \begin{proof}
+      let P(n) be the statement: $\sum^{n}_{i=1}3i^2-3i+1 = n^3$ where $n \geq 1$\\
+      Base case: for n = 1\\
+      $\sum^{1}_{i=1}3i^2-3i+1 = 1^3 = 1$\\
+      hence P(1) is true\\\\
+      Inductive step:\\
+      consider that P(k) is true\\
+      that is the inductive hypothesis: $\sum^{k}_{i=1}3i^2-3i+1 = k^3$\\
+      lets explore P(k+1):\\
+      we need to prove that $\sum^{k+1}_{i=1}3i^2-3i+1 = (k+1)^3$ \\
+      LHS:\\
+      $\sum^{k+1}_{i=1}3i^2-3i+1 = \sum^{k}_{i=1}3i^2-3i+1 + (3(k+1)^2-3(k+1)+1)$\\
+      $=k^3 + (3(k+1)^2-3(k+1)+1)$ using the Inductive hypothesis\\
+      $= k^3+3k^2+6k+3-3k-3+1$\\
+      $= k^3+3k^2+3k+1$\\
+      $= (k+1)^3$ 
+
+
+    \end{proof}
+  \end{solution}
+
+
+\end{questions}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

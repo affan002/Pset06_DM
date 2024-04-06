@@ -1,0 +1,92 @@
+\documentclass[a4paper]{exam}
+
+
+\usepackage{amsfonts,amsmath,amsthm,amssymb}
+\usepackage{geometry}
+
+
+\header{CS/MATH 113}{PSet 13: Structural Induction}{Spring 2024}
+\footer{}{Page \thepage\ of \numpages}{}
+\runningheadrule
+\runningfootrule
+
+\title{Problem Set 13: Structural Induction}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\boxedpoints
+
+\printanswers
+
+\begin{document}
+\maketitle
+
+Each of the problems below is similar in some way to some worked example in the corresponding section of the book. You have already gone over them as part of the reading for the lectures. Revisiting them will help to clarify any issues.
+
+\begin{questions}
+
+\question For the set, $S$, defined below, provide a formula for its elements and then prove it using structural induction.
+  \begin{itemize}
+  \item Basis: $0 \in S$
+  \item Induction: If $n \in S$, then $2n+1 \in S$.
+  \end{itemize}
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\question Let $\lambda$ denote the empty string. Let $A$ be any finite nonempty set. A \textit{palindrome} over $A$ can be defined as a string that reads the same forward as backward. For example, ``mom'' and ``dad'' are palindromes over the English alphabet.
+
+  Consider the set, $S$, defined as follows:
+  \begin{itemize}
+  \item Basis: $\lambda \in S$ and $\forall a \in A (a \in S)$
+  \item Induction: $\forall a \in A\forall x \in S (axa \in S)$
+  \end{itemize}
+
+  Prove, using structural induction where appropriate, that $S$ equals the set of all palindromes over $A$.
+
+  Recall that a set-equality proof requires to show that both sides are subsets of each other. That is, you will have to show that an element of $S$ is a palindrome over $A$, and that any palindrome over $A$ is present in $S$.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+\question
+  Let $a, b, c \in \mathbb{Z}$ such that $c\mid a$ and $c\mid b$. We recursively define $G$, which is a set of ordered pairs of integers, i.e., $G \subseteq \mathbb{Z}^2$, as follows.
+  \begin{itemize}
+  \item Basis: $(a, b) \in G$.
+  \item Induction: If $(u, v) \in G$, then $(u, v - u) \in G$ and $(u - v, v) \in G$.
+  \end{itemize}
+
+  Prove that for any $(x, y) \in G$, $c|x$ and $c|y$.
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+
+  
+\question
+  Let set $S$ be a set of strings over $a$'s and $b$'s defined recursively as follows:
+  \begin{enumerate}
+  \item $a \in S$, $b \in S$.
+  \item If $\mu \in S$ and $\nu \in S$, then $\mu\nu \in S$.
+  \end{enumerate}
+  We also recursively define the reverse operation, $R$, on $S$ as:
+  \begin{enumerate}
+  \item $R(a) = a$, and $R(b) = b$.
+  \item If $\mu \in S$, then $R(a\mu) = R(\mu)a$, and $R(b\mu) = R(\mu)b$.
+  \end{enumerate}
+  Prove by structural induction that for all $\mu, \nu \in S$,
+  \[ R(\mu\nu) = R(\nu)R(\mu). \]
+
+  \begin{solution}
+    % Enter your solution here.
+  \end{solution}
+  
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

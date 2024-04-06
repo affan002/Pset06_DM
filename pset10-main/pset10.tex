@@ -24,33 +24,46 @@
   Show that the two given sets have equal cardinality by describing a bijection from one to the other. Describe your bijection with a formula (not as a table). You need not include a proof of bijection.
   \begin{parts}
   \part The set of even integers and the set of odd integers
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      $f: even \implies odd$\\
+      $f(n) = n - 1, n \in \mathbb{Z}^{+}_{e}$ 
+
     \end{solution}
     
   \part $\Z$ and $S = \{..., \frac{1}{8}, \frac{1}{4}, \frac{1}{2}, 1, 2, 4, 8, 16, ...\}$
     \begin{solution}
       % Enter your solution here.
+      \[ f(n) = \begin{cases}
+        2^n, & \text{if } x \geq 0 \\
+        2^{-n}, & \text{if } x < 0
+    \end{cases} \]
     \end{solution}
 
   \part $\Z^+$ and $S = \{2^n : n \in \Z^+\}$
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      $f: \Z^+ \implies S$\\
+      $f(n) = 2^n, n \in \Z^+$
     \end{solution}
     
   \part $A = \{3k : k \in \Z\}$ and $B = \{7k : k \in \Z\}$
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      f(k) = $(7/3)$ k
     \end{solution}
     
   \part $\R$ and $S=\{x\in\R\mid x>0 \}$
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      $f(x) = e^x$
     \end{solution}
     
   \part $\R$ and $S=\{x\in\R\mid x>\sqrt{2} \}$
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      $f(x) = e^{x + \sqrt{2}}$
+
     \end{solution}
   \end{parts}
 
@@ -59,30 +72,67 @@
   \part If $A = \{X \subseteq \Z^+ \mid X \text{ is finite}\}$, then $|A| = \aleph_0$.
     \begin{solution}
       % Enter your solution here.
+      since A is a powerset of a set of $\mathbb{Z}^{+}$, $|A| > |\mathbb{Z}^{+}|$\\
+      Then according to the continuum hypothesis there is no cardinal number between $\aleph_0$ and $\aleph_1$\\
+      Therefore $|A| = \aleph_1$
     \end{solution}
   \part The set $A = \{(m,n) \in \Z^+ \times \Z^+ \mid m \leq n\}$ is countably infinite.
 
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      To prove this we need a function such that $f: A \implies \Z^{+}$\\
+      lets arrange elements of A into a matrix
+      \[
+        \begin{matrix}
+        (1,1) & (1,2) & (1,3) & \cdots \\
+        &(2,2) & (2,3) & (2,4) & \cdots \\
+        &&(3,3) & (3,4) & (3,5) & \cdots \\
+        &  &  & \ddots \\
+        \end{matrix}
+      \]
+      Using the above visualiztion we can list the set\\
+      A = \{(1,1), (1,2), (1,3), (2,2), (1,4), (2,3), \dots \}\\
+      This way the elemets in the set can be listed diagonally such that $m + n = 2, m + n = 3, m + n =4$ and so on\\
+      Hence, bijection is proved
+ 
     \end{solution}
   \part The set $\Z \times \Q$ is countably infinite.
     \begin{solution}
       % Enter your solution here.
+
+      Let \( \mathbb{Z} \) and \( \mathbb{Q} \) be countably infinite. Then, there exist bijections \( f: \mathbb{N} \to \mathbb{Z} \) and \( g: \mathbb{N} \to \mathbb{Q} \). Consider \( h: \mathbb{N} \times \mathbb{N} \to \mathbb{Z} \times \mathbb{Q} \), defined by \( h(i, j) = (f(i), g(j)) \). Since \( \mathbb{N} \times \mathbb{N} \) is countably infinite and \( h \) is a bijection, it follows that \( \mathbb{Z} \times \mathbb{Q} \) is countably infinite.
     \end{solution}
 
   \part If $A \subseteq B$ and there is an injection $g : B \to A$, then $|A| = |B|$.
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      since $A \subset B$, $|A| \leq |B|$ and every element of A is inside B aswell\\
+      then due to the bijection $g:B \rightarrow A$, it can be concluded that there is a one-to-one correspondence between the two sets\\
+      therefore, they have equal cardinalities
     \end{solution}
     
   \part  If $|A| = |B|$ and $|B| = |C|$, then $|A| = |C|$.
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      since $|A| = |B|$, there should exist a function $f: A \rightarrow B$\\
+      similarly due to $|B| = |C|$, there should exist another function such that $g: B \rightarrow C$\\
+      By taking the composition of these two function we would have another one, such that $h: A \rightarrow C$\\
+      Since fucnction $f$ and $g$ were biijective their composition is also bijective\\
+      Hence establishing a one-to-one correspondence between the two sets A and C\\
+      Therefore, $|A| = |C|$
     \end{solution}
     
   \part If $A$ and $B$ are sets with $|A| = |B|$, then $|\mathcal{P}(A)| = |\mathcal{P}(B)|$.
-    \begin{solution}
+    \begin{solution}\\
       % Enter your solution here.
+      we will prove this by establishing a bijection between $\mathcal{P}(A)$ and $\mathcal{P}(B)$\\
+      Due to $A| = |B|$ we can define a function $g: A \rightarrow B$\\
+      let there be a fucnction $f: \mathcal{P}(A) \rightarrow \mathcal{P}(B)$\\
+      such that for each subset $S \in \mathcal{P}(A)$:
+      \[
+        f(S) = { b \in B \mid b = g(a) \text{ for some } a \in S }
+      \]
+      Hence, $f$ establishes a one-to-one correspondence between $\mathcal{P}(A)$ and $\mathcal{P}(B)$
     \end{solution}
   \end{parts}
   

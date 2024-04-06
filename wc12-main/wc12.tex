@@ -1,0 +1,137 @@
+\documentclass[a4paper, addpoints]{exam}
+
+\usepackage{amsfonts,amsmath,amsthm}
+\usepackage[a4paper]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    square/.pic={
+      \node[draw, minimum size=40pt, thick] (a) {};
+      \draw[dashed] (a.north) -- (a.south);
+      \draw[dashed] (a.east) -- (a.west);
+    }}
+
+\tikzset{
+    tall/.pic={
+      \node[draw, minimum height=40pt, minimum width=20pt, thick] (a) {};
+      \draw[dashed] (a.east) -- (a.west);
+    }}
+
+\tikzset{
+    wide/.pic={
+      \node[draw, minimum width=40pt, minimum height=20pt, thick] (a) {};
+      \draw[dashed] (a.north) -- (a.south);
+    }}
+
+\header{CS/MATH 113}{WC12: Strong Induction}{Spring 2024}
+\footer{}{Page \thepage\ of \numpages}{}
+\runningheadrule
+\runningfootrule
+
+\printanswers
+
+\qformat{{\large\bf \thequestion. \thequestiontitle}\hfill}
+\boxedpoints
+
+\title{Weekly Challenge 12: Strong Induction}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+  \titledquestion{Stax}
+    The game of \textit{Stax} is played with an abundant supply of tiles of 3 different types, shown below.
+    \begin{center}
+    \begin{tikzpicture}
+      \matrix (A) [column sep=50pt] {
+        \pic{square}; & \pic{tall}; & \pic{wide};\\
+      };
+    \end{tikzpicture}
+  \end{center}
+  
+  The objective is to completely tile a $n\times 2$ board using the available tiles. 5 different tilings of a $4\times 2$ board are shown below.
+    \begin{center}
+    \begin{tikzpicture}
+      \matrix (A) [column sep=40pt] {
+      \pic [local bounding box = a] at (0,0) {square};
+      \pic [above = 0pt of a, local bounding box = b] {square}; &
+      \pic [local bounding box = c] at (0,-0.4) {wide};
+      \pic [above = 0pt of c, local bounding box = d] {wide};
+      \pic [above = 0pt of d, local bounding box = e] {wide};
+      \pic [above = 0pt of e, local bounding box = f] {wide};&
+      \pic [local bounding box = g] at (0,0) {square};
+      \pic [above = 0pt of g, anchor = south east, local bounding box = h] {tall};
+      \pic [right = 0pt of h, local bounding box = i] {tall};&
+      \pic [local bounding box = j] at (0,-0.4) {wide};
+      \pic [above = 0pt of j, local bounding box = k] {square};
+      \pic [above = 0pt of k, local bounding box = l] {wide};&
+      \pic [local bounding box = m] at (0,0) {tall};
+      \pic [right = 0pt of m, local bounding box = n] {tall};
+      \pic [above = 0pt of n.north west, local bounding box = o] {square};\\
+    };
+    \end{tikzpicture}
+  \end{center}
+
+  Let $T_n$ denote the number of all possible tilings of a $n\times 2$ board.
+
+  \begin{parts}
+  \part[2] What are the values of $T_1, T_2,$ and $T_3$?
+    \begin{solution}\\
+      % Enter your solution here.
+      $T_1 = 1\\T_2 = 3\\ T_3 = 5$
+    \end{solution}
+
+  \part[3] Argue why $T_n = T_{n-1} + 2T_{n-2}$.
+    \begin{solution}
+      % Enter your solution here.
+      Lets consider the 2x2 tile as $t_a$, the 1x2 tile as $t_b$ and the 2x1 tile as $t_c$\\
+      According to this there can be 3 ways to fill in an nx2 board:\\\\
+      1) place $t_a$ at the bottom then $(n-2) \times 2$ spaces are left thus $T_{n-2}$\\
+      2) place $t_b$ at the bottom then $(n-1) \times 2$ spaces are left thus $T_{n-1}$\\
+      3) place two $t_c$ at the bottom then $(n-2) \times 2$ spaces are left thus $T_{n-2}$\\\\
+      Summing these up resuts in $T_{n-1} + 2T_{n-2}$\\
+      hence, $T_n = T_{n-1} + 2T_{n-2}$
+    \end{solution}
+
+  \part[5] Show using strong induction that
+    \[
+      T_n = \frac{2^{n+1}+(-1)^n}{3}
+    \]
+    \begin{solution}
+      % Enter your solution here.
+      \begin{proof}
+        P(n): $T_n = \frac{2^{n+1}+(-1)^n}{3}$(for $n \geq1 $)\\\\
+        Basis step: for n = 1\\
+        $T_1= \frac{2^{2}+(-1)^1}{3} = 1$, P(1) is true\\
+        $T_2 = \frac{2^{3}+1}{3} = 3$, P(2) is true\\
+        $T_3 = \frac{2^{3+1}-1}{3} = 5$, P(3) is true\\\\
+        Inductive step:\\
+        Assume that P(j) is true for $1 \leq j \leq k$ where $k \geq 3$\\
+        let's explore P(k+1)\\
+        $T_{k+1} = \frac{2^{k+2}+(-1)^{k+1}}{3}$\\
+        Then using the recursive definition we know that, $T_{k+1} = T_k + 2T_{k-1}$\\
+        From the inductive step we know that P(k) and P(k-1) are true\\
+        Therefore, $T_{k+1} = \frac{2^{k+1}+(-1)^{k}}{3} +  \frac{2(2^{k}+(-1)^{k-1})}{3}$\\
+        $= \frac{2^{k+1}+(-1)^{k}+2 \cdot2^{k}+2\cdot(-1)^{k-1}}{3}$\\
+        $= \frac{2^{k+1}+(-1)^{k}+2^{k+1}+-2(-1)^{k}}{3}$\\
+        $= \frac{2\cdot2^{k+1}-(-1)^{k}}{3}$\\
+        $= \frac{2^{k+2}-(-1)^{k}}{3}$\\
+        $= \frac{2^{k+2}+(-1)^{k+1}}{3}$\\
+        Hence P(k+1) is true
+        
+        
+        
+
+      \end{proof}
+    \end{solution}
+  \end{parts}
+\end{questions}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,151 @@
+\documentclass[a4paper]{exam}
+
+
+\usepackage[a4paper]{geometry}
+\usepackage{amsfonts, amsmath, amsthm}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+\title{Problem Set 12: Strong Induction}
+\author{CS/MATH 113 Discrete Mathematics}
+\date{Spring 2024}
+
+\boxedpoints
+
+\printanswers
+
+\begin{document}
+\maketitle
+
+In solving the problems below, note that mathematical induction is just a special case of strong induction.
+
+\begin{questions}
+
+\question Use strong induction to prove each of the statements given below.
+  \begin{parts}
+  \part Every integer \( n \geq 2 \) is either prime or a product of primes.\\
+    \textit{Hint}: Consider the cases where \( k+1 \) is prime and where it is composite.
+   \begin{solution}
+    % Enter your solution here.
+    \begin{proof}
+      let P(n): n can be written as the product primes or it is a prime \\
+      Basis step: for n=2\\
+      P(2) is true as 2 is itself a prime number\\\\
+      Incuctive step: consider that P(j) is true for $2 \leq j \leq k$\\
+      exploring P(k+1): there would be two cases, either k+1 is a prime number or it is a composite number\\
+      In case of it being a prime number, P(k+1) is true as it is itself a prime\\
+      In the other case, we can say that k+1 can be written as the product of two integers a and b, such that $2\leq a\leq b < k$\\
+      then using the inductive hypothesis we can say that both both  a and b are either prime or they can be written as the product of primes\\
+      Therefore, k+1 can be written as product of primes, which are mainly the prime factors of the integer a and b.
+    \end{proof}
+   \end{solution}
+
+ \part \( n! \ge n \) for all integers, \( n \geq 1 \) using strong induction.
+\begin{solution}
+    % Enter your solution here.
+    \begin{proof}
+      let P(n): \( n! \ge n \)\\
+      Basis step: for n =1\\
+      $1! \geq 1$\\
+      Therefore, P(1) is true\\\\
+      Inductive step: consider p(j) is true for  $1 \leq j \leq k$\\
+      exploreing P(k+1): \\
+      we have to prove that $(k+1)! \geq k+1$\\
+      using the inductive hypothesis we have,  $k! \ge k$\\
+      by multiplying k+1 on both sides we get $(k+1)! \geq k(k+1)$, \\
+      since $k(k+1) \geq k+1$, we can say that $(k+1)! \geq k+1$
+    \end{proof}
+  \end{solution}
+
+\part  \( \Z^n \) is countable for all integers \( n \geq 1 \).\\
+  \textit{Hint}: You can refer to known results and proofs to simplify your proof.\\
+  \textit{Note}: Recall that \( \Z^n = \underbrace{\Z\times\Z\times\ldots\times\Z}_{n \text{ times}} \)
+  \begin{solution}
+    % Enter your solution here.
+    let P(n): $\Z^n$ is countable\\
+    Basis step: for n=1, we know that $\Z$ P(1) is true as the set of integers is countable\\\\
+    Inductive step: Assume that P(j) is true for $1 \leq j \leq k$\\
+    lets explore P(k+1)\\
+    $\Z^{k+1} = \Z^k \times \Z$\\
+    using the inductive hypothesis, $\Z^k$ and $\Z$ are countable\\
+    The cartesian product $\Z^k \times \Z$ is also countable\\
+    Thus P(k+1) is true
+  \end{solution}
+\end{parts}
+
+\question The game of Mini-Nim is defined as follows: Some positive number of sticks are placed on the ground. Two players take turns removing one, two, or three sticks. The player to remove the last one loses.
+
+  Use strong induction to show that: The second player has a winning strategy only if the number of sticks equals \( 4k + 1 \) for some integer \( k \ge 0 \).\\
+  \textit{Note}: You will have to consider all cases for the number of sticks: \( 4k+1, 4k+2, 4k+3, \) and \( 4k+4 \), and show that Player 2 can win in one case, and that Player 1 can win in all the other cases.
+
+  \begin{solution}
+    % Enter your solution here.
+    \begin{proof}
+      let P(n): If $n = 4k + 1$, for some $k \in N$, then the second player has a winning strategy otherwise, the first player has a winning strategy.
+      Base case: n = 1. The first player has no choice but to remove 1 stick and lose, which is
+what the theorem says for this case.\\\\
+      Inductive step: Assume that P(j) is true for $1 \leq j \leq k$, where $k > 1$\\
+      Consider the case when there are $n + 1$ sticks.
+\begin{itemize}
+    \item If $n + 1$ is of the form $4k + 1$, then the second player can win immediately by taking the appropriate number of sticks to reduce the remaining pile to $4k + 1$ sticks (which is the winning position).
+    \item Otherwise, we have three possibilities:
+    \begin{itemize}
+        \item $n + 1 = 4k + 2$: The second player can take 1 stick to leave $4k + 1$ sticks for the first player. By the inductive hypothesis, the first player will lose.
+        \item $n + 1 = 4k + 3$: The second player can take 2 sticks to leave $4k + 1$ sticks for the first player. Again, by the inductive hypothesis, the first player will lose.
+        \item $n + 1 = 4k + 4$: The second player can take 3 sticks to leave $4k + 1$ sticks for the first player. Once more, by the inductive hypothesis, the first player will lose.
+    \end{itemize}
+\end{itemize}
+
+Conclusion:
+By strong induction, we have shown that the second player has a winning strategy if and only if the number of sticks equals $4k + 1$ for some integer $k \geq 0$.
+
+    \end{proof}
+  \end{solution}
+  
+  \question 
+  Consider the following proof by strong induction that a class with \( n \geq 8 \) students can be divided into groups of 4 or 5.
+
+  \begin{mdframed}
+    \begin{proof} The proof is by strong induction.
+
+      Let \( P(n) \) be the proposition that a class with \( n \) students can be divided into teams of 4 or 5.
+
+      First, we prove that \( P(n) \) is true for \( n = 8, 9, \) or \( 10 \) by showing how to break classes of these sizes into groups of 4 or 5 students:
+      \begin{align*}
+8  &= 4 + 4 \\
+9  &= 4 + 5 \\
+10 &= 5 + 5 
+      \end{align*}
+Next, we must show that \( P(8), \ldots, P(n) \) imply \( P(n + 1) \) for all \( n \geq 10 \). Thus, we assume that \( P(8), \ldots, P(n) \) are all true and show how to divide up a class of \( n + 1 \) students into groups of 4 or 5. We first form one group of 4 students. Then we can divide the remaining \( n-3 \) students into groups of 4 or 5 by the assumption \( P(n-3) \). This proves \( P(n+1) \), and so the claim holds by induction.
+\end{proof}
+\end{mdframed}
+
+a)
+This proof contains a critical logical error. (In fact, the claim is false!) Identify the first sentence in the proof that does not follow and explain what went wrong.
+  \begin{solution}
+    The basis step doesn’t include P(11) and so the argument is not established
+correctly as P(11) cannot be proven in this case.
+
+      
+  \end{solution}
+b)
+Provide a correct strong induction proof that a class with \( n \geq 12 \) students can be divided into groups of 4 or 5.
+  \begin{solution}
+    P(n): n students can be divided into groups of 4 and 5\\\\
+    Basis step: we can divide 12, 13, 14, 15, 16 students into 3 - 4 people group, 2 - 4 people and 1 - 5 people groups,     
+    2-5 people and 1-4 people groups, 3-5 people groups, 4-4 people groups, respectively.\\\\
+    Inductive step:\\
+    Assume P(j) for $12 \leq j \leq k$, where $k \geq 16$\\
+    We need to show that P(k+1) is true\\
+    Using the inductive hypothesis we know that $k-3$ student can be divided into groups of 4 and 5\\
+    We can get $k+1$ students by adding a group of 4 people to k-3 students\\
+    Hence P(k+1) is true
+  \end{solution}
+
+\end{questions}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
